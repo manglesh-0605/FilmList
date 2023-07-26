@@ -101,7 +101,7 @@ const FilmItem = ({ item, index }) => {
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                             <View style={{ flex: 1 }}>
                                 <Text style={{ paddingHorizontal: 20, fontSize: 18, fontWeight: '600', marginTop: 5, opacity: 0.8 }}>{item.title}</Text>
-                                <Text style={{ paddingHorizontal: 20, fontSize: 14, fontWeight: '400', marginB: 5, opacity: 0.8 }}>By: {item.director}</Text>
+                                <Text style={{ paddingHorizontal: 20, fontSize: 14, fontWeight: '400', marginBottom: 5, opacity: 0.8 }}>By: {item.director}</Text>
                             </View>
                             <Text style={{ paddingHorizontal: 20, fontSize: 12, textAlign: 'right' }}>{item.releaseDate}</Text>
                         </View>
