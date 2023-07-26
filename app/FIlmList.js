@@ -35,13 +35,13 @@ const FilmList = () => {
         try {
             const query = gql`
                 query {
-                    allPeople(first:${limit}) {
+                    allFilms(first:${limit}) {
                         totalCount
-                        people {
+                        films {
                           id
-                          created
-                          birthYear
-                          name
+                          title
+                          releaseDate
+                          director
                         }
                         pageInfo {
                           hasNextPage
@@ -50,9 +50,9 @@ const FilmList = () => {
                     }
             `;
             const response = await client.query({ query });
-            console.log('Response ', response.data.allPeople.pageInfo.hasNextPage);
+            console.log('Response ', response.data.allFilms.pageInfo.hasNextPage);
             setData(response.data)
-            if (response.data.allPeople.pageInfo.hasNextPage == false) {
+            if (response.data.allFilms.pageInfo.hasNextPage == false) {
                 loadMore = false
             }
             setShowLoader(false)
@@ -80,11 +80,21 @@ const FilmList = () => {
                         :
                         <FlatList
                             showsVerticalScrollIndicator={false}
-                            data={data?.allPeople?.people}
+                            data={data?.allFilms?.films}
                             keyExtractor={(item) => item.id}
-
+                            ListHeaderComponent={() => {
+                                return (
+                                    <View>
+                                        <Text style={{
+                                            fontWeight: '600',
+                                            fontSize: 20,
+                                            marginTop: 20
+                                        }}>Movie List</Text>
+                                    </View>
+                                )
+                            }}
                             contentContainerStyle={{
-                                paddingHorizontal: 30
+                                paddingHorizontal: 30,
                             }}
                             ListFooterComponent={() => {
                                 return (
