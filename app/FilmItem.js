@@ -32,11 +32,16 @@ const FilmItem = ({ item, index }) => {
                 }}
             />
 
-            <View>
-                <Text style={{ paddingHorizontal: 20, fontSize: 18, fontWeight: '600', marginTop: 5, opacity: 0.8 }}>{item.title}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View>
+                    <Text style={{ paddingHorizontal: 20, fontSize: 18, fontWeight: '600', marginTop: 5, opacity: 0.8 }}>{item.title}</Text>
+                    <Text style={{ paddingHorizontal: 20, fontSize: 14, fontWeight: '400', marginB: 5, opacity: 0.8 }}>By: {item.director}</Text>
+                </View>
                 <Text style={{ paddingHorizontal: 20, fontSize: 12 }}>{item.releaseDate}</Text>
             </View>
+
         </View>
+
     )
 }
 
